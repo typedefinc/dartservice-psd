@@ -14,7 +14,7 @@ body{
     @include Ral;
 }
 .container{
-    max-width: 1440px;
+   max-width: 1440px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -30,7 +30,7 @@ body{
         .logo{
             display: flex;
             justify-content: flex-start;
-            .logo-text{
+            &-text{
                 font-size: 15px;
                 line-height: 15px;
                 text-transform: uppercase;
@@ -117,7 +117,7 @@ body{
 }
 .easy{
     color: #061e37;
-    .easy-title{
+    &-title{
         font-size: 45px;
     }
     h3{
@@ -125,7 +125,7 @@ body{
         color: #b0bec5;
         font-size: 25px;
     }
-    .easy-description{
+    &-description{
         margin-top:20px;
         max-width: 555px;
         margin-bottom: 100px;
@@ -158,7 +158,6 @@ body{
                     font-size: 20px;
                     @include RalSemiBold;
                     color: #061e37;
-                    
                 }
                 p{
                     font-size: 15px;
@@ -179,12 +178,44 @@ body{
        
     }
 }
+
+.counts{
+    width: 100%;
+    background: url(../img/background_count.png) center no-repeat;
+    background-size: 100%;
+    .wrapper{
+        display: flex;
+        justify-content: space-between;
+        .counts-block{
+            display: flex;
+            flex-basis: 2;
+            justify-content: flex-start;
+            align-items: center;
+            margin: 45px 0;
+            .img-logo{
+                margin-right: 25px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 30px;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background-color: #fff;
+            }
+        }
+        
+    }
+
+}
+
 @media (max-width:1224px){
-    .header-content__wrap{
-        padding: 150px 0;
+    
+    .main-header .header-content__wrap{
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
+        padding: 30px 0;
         .header-content__text{
             display: flex;
             flex-direction: column;
@@ -197,11 +228,35 @@ body{
             margin-top: 40px;
         }
     }
+    .counts{
+        .wrapper{
+            flex-wrap: wrap;
+            .counts-block{
+                justify-content: center;
+                flex-basis: 50%;
+            }
+        }
+    }
 }
 @media (max-width:610px){
     .header-content__video{
         video{
             max-width: 100%;
         }
+    }
+    .counts{
+        background:none;
+        background-color: #b388ff;
+        .wrapper{
+            .counts-block{
+                justify-content: flex-start;
+                flex-basis: 100%;
+            }
+        }
+    }
+}
+@media (max-width:330px){
+    .main-header .header-content__wrap .header-content__text .content-text__btn .btn {
+        width: 120px;
     }
 }
