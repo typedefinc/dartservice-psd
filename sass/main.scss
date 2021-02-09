@@ -1,5 +1,5 @@
 @import 'fonts';
-
+$pixel:150px;
 *,*:after,*:before{
     box-sizing: border-box;
     margin:0;
@@ -17,6 +17,11 @@ body{
    max-width: 1440px;
     margin: 0 auto;
     padding: 0 20px;
+}
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .main-header{
     color: #fff;
@@ -187,11 +192,13 @@ body{
         display: flex;
         justify-content: space-between;
         .counts-block{
+            color:#fff;
             display: flex;
             flex-basis: 2;
             justify-content: flex-start;
             align-items: center;
             margin: 45px 0;
+            @include RalExtraBold;
             .img-logo{
                 margin-right: 25px;
                 display: flex;
@@ -202,11 +209,78 @@ body{
                 height: 60px;
                 border-radius: 50%;
                 background-color: #fff;
+                color: #000;
             }
         }
         
     }
 
+}
+.service{
+    .wrapper{
+        flex-direction: column;
+        padding: 100px 0;
+        .service-title{
+            @include RalSemiBold;
+            font-size: 45px;
+            margin-bottom: 30px;
+        }
+        .service-description{
+            font-size: 15px;
+            color: #b0bec5;
+        }
+        .drop-down__list{
+            background-color: #fff;
+           margin-top: 30px;
+           width: 70%;
+           display: flex;
+           flex-direction: column;
+           justify-content: flex-start;
+           .drop-down__item{
+            margin-top: 40px;
+            overflow: hidden;
+             .item-title{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                i{
+                    font-size: 25px;
+                }
+                .item-name{
+                    background-color: #fff;
+                    z-index: 3;
+                    display: flex;
+                    justify-content: start;
+                    text-transform: uppercase;
+                    i{
+                        font-size: 20px;
+                        margin-right: 15px;
+                    }
+                }
+            }
+            .item-content{
+                margin-top: 15px;
+                display: flex;
+                justify-content: flex-start;
+                transition: all 1s ease;
+                animation: hide 1s ease forwards;
+                .content-img{
+                    width: 100%;
+                    height: 150px;
+                }
+                p{
+                    margin-left: 10px;
+                    color:#061e37;
+                    font-size: 15px;
+                    font-weight: 400;
+                    line-height: 25px;
+                }  
+            }
+           }
+
+        }
+    }
 }
 
 @media (max-width:1224px){
@@ -238,11 +312,27 @@ body{
         }
     }
 }
+//MEDIA........................................................................................................
+@media (max-width:900px){
+    .content-img{
+        display:none;
+    }
+    .item-content{
+        flex-direction: column;
+    }
+    .service .wrapper .drop-down__list .drop-down__item .item-content .content-img {
+        height: 200px;
+    }
+}
+
 @media (max-width:610px){
     .header-content__video{
         video{
             max-width: 100%;
         }
+    }
+    .service .wrapper .drop-down__list .drop-down__item .item-content .content-img {
+        height: auto;
     }
     .counts{
         background:none;
@@ -258,5 +348,26 @@ body{
 @media (max-width:330px){
     .main-header .header-content__wrap .header-content__text .content-text__btn .btn {
         width: 120px;
+    }
+}
+ .active{
+    animation: hideReverce 1s ease forwards !important;
+}
+//ANIMATION.......................................................................................................................................
+@keyframes hide {
+    0%{
+        height:$pixel;
+    }
+    100%{
+        height: 0px;
+    }
+}
+@keyframes hideReverce {
+    0%{
+        height: 0px;
+    }
+    100%{
+        
+        height:$pixel;
     }
 }
