@@ -23,9 +23,21 @@ body{
     justify-content: center;
     align-items: center;
 }
+.btn{
+    width: 150px;
+    height: 50px;
+    text-transform: uppercase;
+    border: none;
+    background-color: #061e37;
+    font-weight:700;
+    outline: none;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    cursor: pointer;
+}
 .main-header{
     color: #fff;
-    background: url(../img/background_header.png) center no-repeat fixed;
+    background: url(../img/background_header.png) center no-repeat;
     background-size: cover;
     padding-top: 50px;
     .navigation-bar{
@@ -88,18 +100,7 @@ body{
             }
             .content-text__btn{
                 margin-top: 40px;
-                .btn{
-                    width: 150px;
-                    height: 50px;
-                    text-transform: uppercase;
-                    border: none;
-                    background-color: #061e37;
-                    font-weight:700;
-                    outline: none;
-                    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
-                    border-radius: 5px;
-                    cursor: pointer;
-                }
+                
                 .text-btn__buynow{
                     font-weight: 400;
                     margin-right: 30px;
@@ -263,8 +264,7 @@ body{
                 margin-top: 15px;
                 display: flex;
                 justify-content: flex-start;
-                transition: all 1s ease;
-                animation: hide 1s ease forwards;
+                animation: hide 0.5s ease forwards;
                 .content-img{
                     width: 100%;
                     height: 150px;
@@ -282,7 +282,83 @@ body{
         }
     }
 }
+.comments{
+    background: url(../img/comments_back.png) center no-repeat;
+    background-size: cover;
+    .content{
+        padding: 90px 0;
+        display: flex;
+        justify-content: space-between;
+    }
+    .comments-text{
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+        max-width: 520px;
+        margin-right: 165px;
+        .comments-text__title{
+            margin-bottom: 20px;
+            @include RalSemiBold;
+            line-height: normal;
+            font-size: 45px;
+        }
+        .comments-text__description{
+            font-size: 15px;
+            @include RalSemiBold;
+            margin-bottom: 100px;
+        }
+    }
+    .comments-block{
+        position: relative;
+        height: 400px;
+        width: 800px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .block-item{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            img{
+                width: 60px;
+                height: 60px;
+                margin-right: 50px;
+            }
+            .block-content{
+                padding: 30px;
+                background-color: #fff;
+                border-radius: 5px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+            }
+        }
+    }
+    .block-content::before{
+        content: "";
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        background:url(../img/arrow_up.png)center no-repeat;
+        left: 57%;
+        top: -50px;
+        cursor: pointer;
+    }
+    .comments-block::after{
+        content: "";
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        background:url(../img/arrow_up.png)center no-repeat;
+        left: 57%;
+        top: 430px;
+        transform: rotateZ(180deg);
+        cursor: pointer;
+    }
+}
 
+//MEDIA........................................................................................................
 @media (max-width:1224px){
     
     .main-header .header-content__wrap{
@@ -312,7 +388,8 @@ body{
         }
     }
 }
-//MEDIA........................................................................................................
+
+
 @media (max-width:900px){
     .content-img{
         display:none;
@@ -351,7 +428,7 @@ body{
     }
 }
  .active{
-    animation: hideReverce 1s ease forwards !important;
+    animation: hideReverce 0.5s ease forwards !important;
 }
 //ANIMATION.......................................................................................................................................
 @keyframes hide {
